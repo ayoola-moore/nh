@@ -6,13 +6,21 @@ export const newStoriesUrl = `${baseUrl}newstories.json`;
 export const storyUrl = `${baseUrl}item/`;
 
 export const getFeeds = async storyId => {
-  const result = await axios.get(`${storyUrl + storyId}.json`);
+  try {
+    const result = await axios.get(`${storyUrl + storyId}.json`);
 
-  return result.data ? selectFields(result.data) : null;
+    return selectFields(result.data);
+  } catch (error) {
+    throw `${error} cannot connect to api. Please contact admin`;
+  }
 };
 
 export const getFeedsById = async () => {
-  const result = await axios.get(newStoriesUrl);
+  try {
+    const result = await axios.get(newStoriesUrl);
 
-  return result.data;
+    return result.data;
+  } catch (error) {
+    throw `${error} cannot connect to api. Please contact admin`;
+  }
 };
