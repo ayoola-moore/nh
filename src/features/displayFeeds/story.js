@@ -15,15 +15,15 @@ export const Story = memo(function Story({ storyId }) {
   }, []);
 
   return story && story.url ? (
-    <NewsWrapper>
+    <NewsWrapper data-test-id="feeds">
       <NewTitle>
         <a href={story.url}>{story.title}</a>
       </NewTitle>
       <NewsMeta>
-        <span data-testid="story-by">
+        <span>
           <NewMetaElement color="#000">By:</NewMetaElement> {story.by}
         </span>
-        <span data-testid="story-time">
+        <span>
           <NewMetaElement color="#000">Posted:</NewMetaElement> {` `}
           {mapTime(story.time)}
         </span>

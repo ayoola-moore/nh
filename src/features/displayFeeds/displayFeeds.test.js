@@ -23,14 +23,14 @@ describe("Stories", () => {
   }, 50000);
 
   it("should show list of news feed", async () => {
-    const story = await page.waitForSelector(`.story-test-class`);
+    const story = await page.waitForSelector(`.data-test-id`);
     expect(story).toBeTruthy();
   }, 500000);
 
-  it("should support offline capability", async () => {
-    await page.waitForSelector(`.story-test-class`);
-    await page.setOfflineMode(true);
-    const story = page.$eval(`.story-test-class`, el => el.innerText);
-    expect(story).toBeTruthy();
-  }, 500000);
+  // it("should support offline capability", async () => {
+  //   await page.waitForSelector(`.story-test-class`);
+  //   await page.setOfflineMode(true);
+  //   const story = page.$eval(`.story-test-class`, el => el.innerText);
+  //   expect(story).toBeTruthy();
+  // }, 500000);
 });

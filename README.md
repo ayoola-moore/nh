@@ -36,8 +36,11 @@ The architectural pattern used was adopted with scalability in mind and tries to
 - src/components
   Should contain react components designed to be reusable and shared across the application
 - src/{featureName}
+
   - Each identifiable feature will contain its own directory eg. displayFeeds
   - The directory is aimed at following an easily adoptable and repeatable pattern based on functionalities. ( I will be happy to shade more light of the choice of architectural pattern adopted if need be)
+
+- page: for routing based pages.
 - Files and directories were all named using camelCased
 
 **App performance**
