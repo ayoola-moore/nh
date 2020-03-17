@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Story } from "../components/story";
-import { GlobalStyle } from "../utils/global-style";
+import FeedsContainerWrapper from "../../components/feedsContainerWrapper";
+import NewsHeader from "../../components/newsHeader";
+import { GlobalStyle } from "../../utils/global-style";
 import { getFeedsById } from "./api";
 import { useInfiniteScroll } from "./hooks";
-import { FeedsContainerWrapper, NewsHeader } from "./styled";
+import { Story } from "./story";
 
 export const StoriesContainer = () => {
   const { count } = useInfiniteScroll();
@@ -16,8 +17,8 @@ export const StoriesContainer = () => {
   return (
     <>
       <GlobalStyle />
-      <FeedsContainerWrapper data-test-id="stories-container">
-        <NewsHeader data-test-id="nh-header">NH</NewsHeader>
+      <FeedsContainerWrapper>
+        <NewsHeader>NH</NewsHeader>
         {storyIds.slice(0, count).map(storyId => (
           <Story key={storyId} storyId={storyId} />
         ))}

@@ -1,13 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { memo, useEffect, useState } from "react";
-import { getFeeds } from "../displayFeeds/api";
-import {
-  NewMetaElement,
-  NewsMeta,
-  NewsWrapper,
-  NewTitle
-} from "../displayFeeds/styled";
-import { mapTime } from "../displayFeeds/utils";
+import NewsMeta from "../../components/newsMeta";
+import NewMetaElement from "../../components/newsMetaElement";
+import NewTitle from "../../components/newsTitle";
+import NewsWrapper from "../../components/newsWrapper";
+import { getFeeds } from "./api";
+import { mapTime } from "./utils";
 
 export const Story = memo(function Story({ storyId }) {
   const [story, setStory] = useState({});
@@ -17,7 +15,7 @@ export const Story = memo(function Story({ storyId }) {
   }, []);
 
   return story && story.url ? (
-    <NewsWrapper data-testid="story" className={"story-test-class"}>
+    <NewsWrapper>
       <NewTitle>
         <a href={story.url}>{story.title}</a>
       </NewTitle>

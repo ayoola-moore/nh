@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { debounce } from "../utils/debounce";
+import { debounce } from "../../utils/debounce";
 
 // Feeds will be loaded in batch of 20
 export const STORY_INCREMENT = 20;
@@ -26,7 +26,7 @@ export const useInfiniteScroll = () => {
     if (!loading) return;
 
     setCount(count + STORY_INCREMENT);
-    
+
     setLoading(false);
   }, [loading]);
 
